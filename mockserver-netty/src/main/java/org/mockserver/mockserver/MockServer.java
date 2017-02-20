@@ -37,7 +37,7 @@ public class MockServer implements Stoppable {
     private final SettableFuture<String> stopping = SettableFuture.<String>create();
     // netty
     private final EventLoopGroup bossGroup = new NioEventLoopGroup();
-    private final EventLoopGroup workerGroup = new NioEventLoopGroup();
+    private final EventLoopGroup workerGroup = new NioEventLoopGroup(500);
     private final ServerBootstrap serverBootstrap;
     private StopEventQueue stopEventQueue = new StopEventQueue();
 
