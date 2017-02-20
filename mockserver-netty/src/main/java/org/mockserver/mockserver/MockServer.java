@@ -33,8 +33,8 @@ public class MockServer implements Stoppable {
     private final RequestLogFilter requestLogFilter = new RequestLogFilter();
     private final List<Future<Channel>> channelOpenedFutures = new ArrayList<Future<Channel>>();
     // netty
-    private final EventLoopGroup bossGroup = new NioEventLoopGroup();
-    private final EventLoopGroup workerGroup = new NioEventLoopGroup();
+    private final EventLoopGroup bossGroup = new NioEventLoopGroup(16);
+    private final EventLoopGroup workerGroup = new NioEventLoopGroup(128);
     private final ServerBootstrap serverBootstrap;
     private StopEventQueue stopEventQueue = new StopEventQueue();
 
